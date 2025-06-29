@@ -52,3 +52,17 @@ build/
 # Ignore outputs
 *.out
 *.tmp
+
+# Ignore Python and Jupyter temp files
+*.tmp
+*.temp
+*~
+*.bak
+*.swp
+*.swo
+*.pyc
+*.pyo
+*$py.class
+*.python
+# Jupyter Notebook temp files
+**/tempCodeRunnerFile.*
