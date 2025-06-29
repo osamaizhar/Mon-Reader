@@ -1,0 +1,15 @@
+opencv-python
+matplotlib
+numpy
+scikit-learn
+Pillow
+keras
+efficientnet
+numpy
+scipy
+tensorflow
+pytesseract
+langdetect
+gtts
+playsound
+opencv-python
