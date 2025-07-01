@@ -5,11 +5,10 @@ scikit-learn
 Pillow
 keras
 efficientnet
-numpy
 scipy
 tensorflow
-pytesseract
+easyocr
 langdetect
 gtts
-playsound
-opencv-python
+pygame
+groq
