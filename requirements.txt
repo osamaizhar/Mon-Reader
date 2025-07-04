@@ -12,3 +12,8 @@ langdetect
 gtts
 pygame
 groq
+lion-pytorch
+paddleocr 
+playsound
+Path
+paddlepaddle
