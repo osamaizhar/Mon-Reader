@@ -1,11 +1,13 @@
 opencv-python
-easyocr[gpu]
+easyocr
 groq
 langdetect
 numpy
-paddleocr
 playsound
 pyttsx3
 requests
-torch
 Pillow
+# GPU-specific versions:
+torch
+paddleocr
+paddlepaddle-gpu
