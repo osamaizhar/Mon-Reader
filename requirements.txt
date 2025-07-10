@@ -13,3 +13,4 @@ matplotlib
 lion_pytorch
 accelerate
 transformers
+llava-torch
