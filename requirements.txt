@@ -11,3 +11,5 @@ torch
 Pillow
 matplotlib
 lion_pytorch
+accelerate
+transformers
