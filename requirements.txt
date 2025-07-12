@@ -8,9 +8,14 @@ playsound
 pyttsx3
 requests
 torch
+torchvision  
+torchaudio
 Pillow
 matplotlib
-lion_pytorch
 accelerate
 transformers
-llava-torch
+bitsandbytes
+safetensors
+sentencepiece
+protobuf
+ollama

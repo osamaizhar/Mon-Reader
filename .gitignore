@@ -66,3 +66,7 @@ build/
 *.python
 # Jupyter Notebook temp files
 **/tempCodeRunnerFile.*
+
+# Project specific files
+anaconda.sh
+Pip/
