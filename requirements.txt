@@ -3,13 +3,13 @@ easyocr[gpu]
 groq
 langdetect
 numpy
-paddleocr
-playsound
+# paddleocr
+pygame
 pyttsx3
 requests
-torch
-torchvision  
-torchaudio
+#torch
+#torchvision  
+#torchaudio
 Pillow
 matplotlib
 accelerate
@@ -19,3 +19,12 @@ safetensors
 sentencepiece
 protobuf
 ollama
+dotenv  
+
+
+# SESAME
+huggingface_hub
+moshi
+torchtune
+torchao
+silentcipher @ git+https://github.com/SesameAILabs/silentcipher@master
