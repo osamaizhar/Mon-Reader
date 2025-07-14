@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+python-dotenv
+pillow
+google-genai
+elevenlabs
+pathlib
+asyncio

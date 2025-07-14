@@ -1,0 +1,45 @@
+Task 4:
+Employee Hierarchy
+a. Employee (parent): attributes like name, id; method get_details()
+b. Manager, Developer, Intern (children): implement role-specific methods like
+calculate_salary(), assign_task()
+
+Code:
+class Employee:
+    def __init__(self, name, emp_id):
+        self.name = name
+        self.emp_id = emp_id
+
+    def get_details(self):
+        print(f"Name: {self.name}, ID: {self.emp_id}")
+
+class Manager(Employee):
+    def calculate_salary(self):
+        print("Manager salary: 8000 USD")
+
+    def assign_task(self):
+        print("Manager assigns tasks")
+
+class Developer(Employee):
+    def calculate_salary(self):
+        print("Developer salary: 6000 USD")
+
+    def assign_task(self):
+        print("Developer writes code")
+
+class Intern(Employee):
+    def calculate_salary(self):
+        print("Intern salary: 2000 USD")
+
+    def assign_task(self):
+        print("Intern assists in tasks")
+
+m = Manager("Alice", 101)
+m.get_details()
+m.calculate_salary()
+m.assign_task()
+
+d = Developer("Bob", 102)
+d.get_details()
+
+Applied Computing and Emerging Sciences

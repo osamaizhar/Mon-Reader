@@ -19,7 +19,7 @@ safetensors
 sentencepiece
 protobuf
 ollama
-dotenv  
+  
 
 
 # SESAME
@@ -28,3 +28,17 @@ moshi
 torchtune
 torchao
 silentcipher @ git+https://github.com/SesameAILabs/silentcipher@master
+
+# Google Gemini
+google-genai
+
+
+# Frontend and Backend 
+fastapi
+uvicorn
+python-multipart
+python-dotenv
+pillow
+elevenlabs
+pathlib
+asyncio

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon-Reader - OCR & TTS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-book-reader"></i>
+                <h1>Mon-Reader</h1>
+            </div>
+            <p class="subtitle">Extract text from images and convert to speech</p>
+        </header>
+
+        <main class="main-content">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Drop your image here</h3>
+                        <p>or <span class="browse-link">browse files</span></p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
+                </div>
+                
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <div class="file-preview">
+                        <img id="imagePreview" alt="Preview">
+                        <div class="file-details">
+                            <h4 id="fileName"></h4>
+                            <p id="fileSize"></p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="processBtn">
+                        <i class="fas fa-magic"></i>
+                        Process Image
+                    </button>
+                </div>
+            </div>
+
+            <div class="loading-section" id="loadingSection" style="display: none;">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Processing your image...</p>
+                    <small>Extracting text and generating audio</small>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="text-result">
+                    <h3><i class="fas fa-text-width"></i> Extracted Text</h3>
+                    <div class="text-content" id="extractedText"></div>
+                    <button class="btn btn-secondary" id="copyTextBtn">
+                        <i class="fas fa-copy"></i>
+                        Copy Text
+                    </button>
+                </div>
+
+                <div class="audio-result">
+                    <h3><i class="fas fa-volume-up"></i> Generated Audio</h3>
+                    <div class="audio-player">
+                        <audio id="audioPlayer" controls preload="none">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-controls">
+                            <button class="btn btn-secondary" id="downloadAudioBtn">
+                                <i class="fas fa-download"></i>
+                                Download Audio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-outline" id="newImageBtn">
+                    <i class="fas fa-plus"></i>
+                    Process Another Image
+                </button>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-content">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Processing Error</h3>
+                    <p id="errorMessage"></p>
+                    <button class="btn btn-primary" id="retryBtn">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Mon-Reader. Powered by Gemini OCR & ElevenLabs TTS</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
