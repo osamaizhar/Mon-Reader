@@ -1,154 +1,79 @@
-# 32VMKecjMmv755SU
+# Mon-Reader: OCR and TTS Application
 
-# MonReader - AI-Powered Smart Document Reader
+Mon-Reader is a web application that extracts text from images using Google Gemini OCR and converts it to speech using ElevenLabs TTS.
 
-MonReader is an AI-powered mobile document scanning pipeline developed during my AI Residency at **Apziva** for a client specializing in inclusive computer vision solutions. The system is designed to detect page flips, capture still document images automatically, and extract + read out text using OCR and TTS.
+## Features
 
-## 🚀 Project Goals
+- Upload images and extract text using Google Gemini OCR
+- Convert extracted text to speech using ElevenLabs TTS
+- User-friendly web interface
+- Download audio files of the extracted text
+- Copy extracted text to clipboard
 
-- Predict whether a document page is being flipped using a single frame
-- Trigger high-quality capture on still frames
-- Build and evaluate models (pretrained + custom)
-- Extract text from still frames using OCR
-- Read out text via TTS (Text-to-Speech)
+## Setup
 
----
+### Prerequisites
 
-## 🧠 Tech Stack
+- Python 3.8 or higher
+- Google Gemini API key
+- ElevenLabs API key
 
-### Programming Language:
-- **Python** 3.9+
+### Installation
 
-### Deep Learning & Machine Learning:
-- **PyTorch** (`torch`, `torchvision`) - model building, training, GPU acceleration
-- **scikit-learn** - metrics and evaluation (confusion matrix, F1)
-- **lion-pytorch** - custom optimizer used for OsamaNet
-
-### Computer Vision & OCR:
-- **EasyOCR** - multilingual OCR with GPU support
-- **OpenCV (cv2)** - image processing
-- **PIL (Pillow)** - image handling and transformations
-
-### Text-to-Speech (TTS):
-- **pyttsx3** - offline TTS engine
-
-### Language Detection:
-- **langdetect** - automatic detection of extracted text language
-
-### Data Handling & Utilities:
-- **NumPy** - numerical operations
-- **glob, os** - file handling and pattern matching
-- **gc, time, random** - memory and performance utilities
-
-### Data Loading & Augmentation:
-- `torchvision.datasets.ImageFolder`
-- `torchvision.transforms`
-- `torch.utils.data.DataLoader`, `Dataset`, `SubsetRandomSampler`
-
-### Visualization:
-- **matplotlib.pyplot** - plotting training metrics and image samples
-- **sklearn.metrics.ConfusionMatrixDisplay** - visual confusion matrix
-
-### Development Environment:
-- **Jupyter Notebook** - interactive prototyping and visual analysis
-
----
-
-## 📁 Project Structure
-
-```
-Mon-Reader/
-├── images/
-│   ├── training/
-│   │   ├── flip/              # Training flip images
-│   │   └── notflip/           # Training notflip images
-│   └── testing/
-│       ├── flip/              # Testing flip images
-│       └── notflip/           # Testing notflip images
-├── part_2_images/             # Additional document images for OCR
-├── extracted_text/            # OCR output text files
-├── tts_outputs/               # TTS audio output (.wav)
-├── saved_models/              # Trained PyTorch models (.pth)
-├── eda.ipynb                  # Exploratory data analysis
-├── model_testing.ipynb        # CNN model training and evaluation
-├── ocr_tts_gpu.ipynb          # Final OCR + TTS implementation
-├── requirements.txt           # Full dependencies
-├── req_min.txt                # Minimal install requirements
-├── .gitignore                 # Git ignored files and folders
-├── README.md                  # Project documentation
-```
-
----
-
-## 📊 Steps I Completed
-
-### 1. **Exploratory Data Analysis (EDA)**
-- Printed folder structure
-- Verified label distribution (`flip` vs `notflip`)
-- Visualized blurry (flip) vs still (notflip) frames
-- Ensured consistent dimensions and formats
-
-### 2. **Image Classification Models**
-- Used PyTorch Dataloaders + transforms for augmentation
-- Tested 3 pretrained models with transfer learning:
-  - ✅ ResNet50
-  - ✅ MobileNetV2
-  - ✅ EfficientNetB0
-- Trained each model for **10 epochs** using binary classification loss
-- Evaluated using **accuracy**, **F1 score**, and **confusion matrix**
-
-### 3. **Custom CNN - OsamaNet**
-- Designed lightweight CNN architecture
-- Added dropout for regularization
-- Used **Lion optimizer** for faster convergence and better generalization
-- Trained and evaluated using consistent splits
-
-### 4. **OCR + TTS Integration**
-- Initial plan with PaddleOCR replaced by **EasyOCR**
-- TTS demonstrated with **pyttsx3** (offline)
-- Language auto-detection handled with `langdetect`
-
----
-
-## 📈 Results Summary
-
-| Model          | Accuracy | F1 Score (est.) |
-|----------------|----------|-----------------|
-| OsamaNet       | 93.97%   | ~0.93            |
-| MobileNetV2    | 86.93%   | ~0.87            |
-| EfficientNetB0 | 84.09%   | ~0.84            |
-| ResNet50       | 71.36%   | ~0.71            |
-
-✅ Custom model (OsamaNet) outperformed all baselines  
-✅ MobileNet was lightweight and fast  
-✅ EfficientNet showed balanced tradeoff  
-✅ ResNet50 struggled with this specific dataset
-
----
-
-## 🛠️ Installation
+1. Clone this repository
+2. Install the required packages:
 
 ```bash
-conda create -n monreader python=3.9 -y
-conda activate monreader
-pip install -r requirements.txt
+pip install -r Backend/requirements.txt
 ```
 
-> Ensure compatible NVIDIA drivers and CUDA are installed for GPU acceleration
+3. Create a `.env` file in the root directory with your API keys:
 
----
+```
+GEMINI_API_KEY=your_gemini_api_key_here
+ELEVEN_LABS_KEY=your_elevenlabs_api_key_here
+```
 
-## 🤝 Credits
+### Running the Application
 
-Developed by **Osama Izhar** during his AI Residency at **Apziva**.  
-Dataset and business problem provided by client for internal R&D use.
+Run the application using:
 
----
+```bash
+python run_server.py
+```
 
-## 📬 Contact
-For questions, collaborations, or deployment discussions:
-**ahmedosamaizhar21@gmail.com**
+The application will be available at:
+- Web Interface: http://localhost:8000
+- API Documentation: http://localhost:8000/docs
 
----
+## Usage
 
-**#AI #ComputerVision #CNN #OCR #TTS #PyTorch #Accessibility #MonReader**
+1. Open the web interface in your browser
+2. Upload an image containing text
+3. The application will extract the text and generate audio
+4. You can listen to the audio, download it, or copy the extracted text
+
+## Project Structure
+
+- `Backend/`: FastAPI backend code
+  - `main.py`: Main FastAPI application
+  - `ocr_service.py`: Google Gemini OCR service
+  - `tts_service.py`: ElevenLabs TTS service
+- `Frontend/`: Web interface
+  - `index.html`: Main HTML page
+  - `script.js`: JavaScript for the web interface
+  - `styles.css`: CSS styles
+- `uploads/`: Temporary storage for uploaded images
+- `audio_outputs/`: Storage for generated audio files
+
+## API Endpoints
+
+- `GET /`: Redirects to the web interface
+- `POST /upload-and-process`: Upload and process an image
+- `GET /voices`: Get available ElevenLabs voices
+- `GET /health`: Health check endpoint
+- `GET /docs`: API documentation (Swagger UI)
+
+## License
+
+This project is licensed under the MIT License.

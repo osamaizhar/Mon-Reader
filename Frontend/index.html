@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <header class="header">
@@ -27,7 +29,7 @@
                         <input type="file" id="fileInput" accept="image/*" hidden>
                     </div>
                 </div>
-                
+
                 <div class="file-info" id="fileInfo" style="display: none;">
                     <div class="file-preview">
                         <img id="imagePreview" alt="Preview">
@@ -61,13 +63,17 @@
                     </button>
                 </div>
 
-                <div class="audio-result">
+                <div class="audio-result" id="audioResult">
                     <h3><i class="fas fa-volume-up"></i> Generated Audio</h3>
                     <div class="audio-player">
-                        <audio id="audioPlayer" controls preload="none">
+                        <audio id="audioPlayer" controls preload="auto">
                             Your browser does not support the audio element.
                         </audio>
                         <div class="audio-controls">
+                            <button class="btn btn-primary" id="playAudioBtn">
+                                <i class="fas fa-play"></i>
+                                Play Audio
+                            </button>
                             <button class="btn btn-secondary" id="downloadAudioBtn">
                                 <i class="fas fa-download"></i>
                                 Download Audio
@@ -102,4 +108,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
