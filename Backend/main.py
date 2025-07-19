@@ -53,13 +53,12 @@ logger.info(f"Audio directory: {AUDIO_DIR} (exists: {AUDIO_DIR.exists()})")
 # Mount static files for audio
 app.mount("/audio", StaticFiles(directory=str(AUDIO_DIR)), name="audio")
 
-# Mount frontend static files
-app.mount("/frontend", StaticFiles(directory="Frontend", html=True), name="frontend")
+# Frontend static files are served by nginx container
 
 @app.get("/")
 async def root():
-    """Redirect to frontend"""
-    return RedirectResponse(url="/frontend/index.html")
+    """API root endpoint"""
+    return {"message": "Mon-Reader API", "status": "running", "docs": "/docs"}
 
 @app.middleware("http")
 async def log_requests(request: Request, call_next):

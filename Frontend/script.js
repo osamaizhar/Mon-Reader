@@ -1,6 +1,7 @@
 class MonReader {
     constructor() {
-        this.apiBaseUrl = 'http://localhost:8000';
+        // Use relative URLs for Docker deployment, fallback to localhost for development
+        this.apiBaseUrl = window.location.hostname === 'localhost' ? 'http://localhost:8000' : '/api';
         this.currentFile = null;
         this.initializeElements();
         this.attachEventListeners();
