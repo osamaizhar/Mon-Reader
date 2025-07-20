@@ -1,5 +1,5 @@
 # Mon-Reader: Multi-Model OCR and TTS Application
-o2GXTpiRUisJhGpe
+### o2GXTpiRUisJhGpe
 Mon-Reader is a production-ready web application that extracts text from images using multiple OCR models (EasyOCR, Google Gemini, LLaVA) and converts it to natural speech using ElevenLabs TTS. The application is containerized with Docker and deployed on AWS EC2 for global accessibility.
 
 ## 🚀 Features
