@@ -202,3 +202,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 *For detailed implementation details and code examples, please refer to the accompanying article.*
+**Link:** https://medium.com/@ahmedosamaizhar21/monreader-a-smart-document-reader-for-everyone-8406d428f9b0
